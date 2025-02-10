@@ -1,0 +1,54 @@
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    background-color:rgb(170, 121, 121);
+    padding: 0px 100px;
+    padding-top: 20px;
+    color: white;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+
+li {
+    list-style-type: none;
+
+}
+a {
+    color: white;
+}
+
+section {
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    background-color:rgb(170, 121, 121);
+    color: white ;
+}
+.sectiondesc {
+    font-size: 20px;
+    color: white;
+}
+
+.people {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.people2 {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    background-color: grey;
+    color: white;
+}
