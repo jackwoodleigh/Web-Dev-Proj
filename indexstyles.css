@@ -1,0 +1,108 @@
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    background-color:rgb(170, 121, 121);
+    padding: 0px 100px;
+    padding-top: 20px;
+    color: white;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+nav > ul > li {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+li {
+    list-style-type: none;
+
+}
+
+.bigheader {
+    background-image: url("https://as1.ftcdn.net/v2/jpg/03/35/51/06/1000_F_335510693_HY7mLg3ARdLccKoXk3m66NLDpJRJh51p.jpg") ;
+    padding: 50px;
+    text-shadow: 
+        -1px -1px 0 black,  
+        1px -1px 0 black,  
+        -1px 1px 0 black,  
+        1px 1px 0 black;
+        font-style: italic;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    justify-content: space-around;
+    background-color: antiquewhite;
+    color: white;
+}
+
+.section4 {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 15px;
+    padding-bottom: 400px;
+}
+
+.section4 > div > li {
+   background-color: orange;
+   padding: 5px;
+   text-transform: uppercase;
+   border-radius: 20px;
+}
+
+.section4 img {
+    max-width: 150px;
+    height: auto;
+}
+
+
+.allrecipes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    gap: 20px; 
+    justify-items: center; 
+    align-items: center; 
+    padding-bottom: 100px;
+}
+
+.allrecipes div {
+    text-align: center; 
+}
+
+.allrecipes img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; 
+}
+
+.allrecipes a {
+    font-weight: bold;
+    font-size: 16px;
+    margin-top: 10px;
+    color: white;
+    background-color: orange;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+a {
+    text-decoration: none  ;
+    color: white;
+}
+
+footer {
+    background-color: grey;
+    color: white;
+}
+
