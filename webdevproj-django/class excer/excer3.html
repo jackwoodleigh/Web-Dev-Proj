@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <button onclick="repeatString()">Test repeatString()</button>
+    <script>
+        function repeatString(){
+            const s = prompt("enter string")
+            const n = prompt("enter count")
+            let str = ""
+            for (let i=0; i<n; i++){
+                str += s;
+            }
+            console.log(str)
+        }
+    </script>
+</body>
+</html>
