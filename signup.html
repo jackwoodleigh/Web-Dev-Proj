@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="indexstyles.css">
+</head>
+<body>
+  
+    <nav id="header">
+        <ul class="nav">
+            <li><a href="./index.html" class="navitems">Home</a></li>
+            <li><a  href="./recipes.html">Recipes</a></li>
+            <li><a  href="./about.html">About</a></li>
+            <li><a  href="./signup.html">Sign up</a></li>
+            <li class="dropdown">
+                <a href="#">Subscription</a>
+                <div class="dropdown-content">
+                    <a href="#">Manage your Subscription</a>
+                    <a href="#">Give a Gift Subscription</a>
+                    <a href="#">Help</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="searchbar">
+        <form action="/search" method="get">
+        <input type="search" id="search" name="query" placeholder="Search for recipes">
+        <button type="submit">Search</button>
+        </form>
+        </div>
+       
+    </nav>
+
+    <section>
+    <div class="form-container">
+        <img src="https://butternutbakeryblog.com/wp-content/uploads/2023/04/chocolate-cake.jpg" alt="" width="200px">
+        <h2>Subscribe to our recipes!</h2>
+        <form action="#" method="post">
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <div class="message">
+            <p>Stay updated with the latest recipes!</p>
+        </div>
+    </div>
+</section>
+    
+    <footer>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit asperiores cupiditate eaque porro, ex ipsum nemo reprehenderit accusamus, vero vitae consectetur expedita hic eveniet numquam animi aspernatur cum neque ducimus.</p>
+        <p>WIT &copy; 2020</p>
+    </footer>
+</body>
+</html>

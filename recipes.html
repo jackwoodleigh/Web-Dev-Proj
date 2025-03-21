@@ -10,59 +10,117 @@
 </head>
 <body>
     
-    <nav>
+     
+    <nav id="header">
         <ul class="nav">
             <li><a href="./index.html" class="navitems">Home</a></li>
             <li><a  href="./recipes.html">Recipes</a></li>
             <li><a  href="./about.html">About</a></li>
+            <li><a  href="./signup.html">Sign up</a></li>
+            <li class="dropdown">
+                <a href="#">Subscription</a>
+                <div class="dropdown-content">
+                    <a href="#">Manage your Subscription</a>
+                    <a href="#">Give a Gift Subscription</a>
+                    <a href="#">Help</a>
+                </div>
+            </li>
         </ul>
-    </nav>
 
+        <div class="searchbar">
+        <form action="/search" method="get">
+        <input type="search" id="search" name="query" placeholder="Search for recipes">
+        <button type="submit">Search</button>
+        </form>
+        </div>
+       
+    </nav>
     <section>
         <h1 class="bigheader">All recipes</h1>
         <div class="allrecipes">
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#spaghetti">Spaghetti Carbonara</a>
+                <img src="https://www.cookingclassy.com/wp-content/uploads/2020/06/avocado-salad-7.jpg" alt="">
+                <a href="./recipes/avocado-salad.html">Avocado Salad</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#stirfry">Vegetable Stir Fry</a>
+                <img src="https://www.skinnytaste.com/wp-content/uploads/2015/01/Avocado-Toast-with-Egg-7.jpg" alt="">
+                <a href="./recipes/avocado-toast-with-egg.html">Avocado Toast with Egg</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#tikka">Chicken Tikka Masala</a>
+                <img src="https://cookieandkate.com/images/2023/02/3-ingredient-banana-pancake-recipe-1-2.jpg" alt="">
+                <a href="./recipes/banana-pancakes.html">Banana Pancakes</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#butternut">Butternut Squash Soup</a>
+                <img src="https://www.dessertfortwo.com/wp-content/uploads/2019/06/Taco-Meat-Recipe-3-735x1103.jpg" alt="">
+                <a href="./recipes/beef-tacos.html">Beef Tacos</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#cheeseburger">Classic Cheeseburger</a>
+                <img src="https://s23209.pcdn.co/wp-content/uploads/2014/12/230711_DD_Roasted-Butternut-Squash-Bacon-Soup_243.jpg" alt="">
+                <a href="./recipes/butternut-squash-soup.html">Butternut Squash Soup</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#avocado">Avocado Toast with Egg</a>
+                <img src="https://www.cookingclassy.com/wp-content/uploads/2019/11/cheesecake-8.jpg" alt="">
+                <a href="./recipes/cheesecake.html">Cheesecake</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#shrimp">Shrimp Scampi</a>
+                <img src="https://thefoodcharlatan.com/wp-content/uploads/2020/08/Homemade-Chicken-Fettuccine-Alfredo-10.jpg" alt="">
+                <a href="./recipes/chicken-alfredo-pasta.html">Chicken Alfredo Pasta</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#quiche">Spinach and Feta Quiche</a>
+                <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2019/02/Best-Chicken-Fried-Rice-Recipe.jpg" alt="">
+                <a href="./recipes/chicken-fried-rice.html">Chicken Fried Rice</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#tacos">Beef Tacos</a>
+                <img src="https://www.skinnytaste.com/wp-content/uploads/2011/06/Chicken-Tikka-Masala-15.jpg" alt="">
+                <a href="./recipes/chicken-tikka-masala.html">Chicken Tikka Masala</a>
             </div>
             <div>
-                <img src="https://pinchofyum.com/wp-content/uploads/Chicken-Tinga-Tacos-6-840x1200.jpg" alt="">
-                <a href="#pancakes">Banana Pancakes</a>
+                <img src="https://diethood.com/wp-content/uploads/2014/05/american-cheeseburger-7.jpg" alt="">
+                <a href="./recipes/classic-cheeseburger.html">Classic Cheeseburger</a>
+            </div>
+            <div>
+                <img src="https://www.paleorunningmomma.com/wp-content/uploads/2021/02/lava-cakes-9.jpg" alt="">
+                <a href="./recipes/chocolate-lava-cake.html">Chocolate Lava Cake</a>
+            </div>
+            <div>
+                <img src="https://www.spendwithpennies.com/wp-content/uploads/2023/06/Grilled-Chicken-Salad-SpendWithPennies-4.jpg" alt="">
+                <a href="./recipes/grilled-chicken-salad.html">Grilled Chicken Salad</a>
+            </div>
+            <div>
+                <img src="https://s23209.pcdn.co/wp-content/uploads/2014/04/Garlic-Butter-Shrimp_485.jpg" alt="">
+                <a href="./recipes/garlic-butter-shrimp.html">Garlic Butter Shrimp</a>
+            </div>
+            <div>
+                <img src="https://www.butterbeready.com/wp-content/uploads/2024/11/fried-chicken-5.jpg" alt="">
+                <a href="./recipes/fried-chicken.html">Fried Chicken</a>
+            </div>
+            <div>
+                <img src="https://krollskorner.com/wp-content/uploads/2020/02/Shrimpscampialfredo12-scaled.jpg" alt="">
+                <a href="./recipes/shrimp-scampi.html">Shrimp Scampi</a>
+            </div>
+            <div>
+                <img src="https://www.spoonfulofflavor.com/wp-content/uploads/2021/01/spinach-and-feta-quich.jpg" alt="">
+                <a href="./recipes/shrimp-scampi.html">Spinach and Feta Quiche</a>
+            </div>
+            <div>
+                <img src="https://stefaniaskitchenette.com/wp-content/uploads/2024/07/Carbonara-5.webp" alt="">
+                <a href="./recipes/spaghetti-carbonara.html">Spaghetti Carbonara</a>
+            </div>
+            <div>
+                <img src="https://cookieandkate.com/images/2015/11/best-vegetarian-chili-1-1.jpg" alt="">
+                <a href="./recipes/vegetarian-chili.html">Vegetarian Chili</a>
+            </div>
+            <div>
+                <img src="https://www.dinneratthezoo.com/wp-content/uploads/2019/02/vegetable-stir-fry-3.jpg" alt="">
+                <a href="./recipes/vegetable-stir-fry.html">Vegetable Stir Fry</a>
+            </div>
+             <div>
+                <img src="https://domesticgothess.com/wp-content/uploads/2020/03/easy-vegan-banana-bread.jpg" alt="">
+                <a href="./recipes/vegan-banana-bread.html">Vegan Banana Bread</a>
             </div>
         </div>
     </section>
+    
     
     
     <footer>

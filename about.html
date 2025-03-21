@@ -1,40 +1,68 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head> 
-<body>
+    <title>About</title>
+    <link rel="stylesheet" href="indexstyles.css">
+</head>
 
-    <nav>
+<body>
+    <nav id="header">
         <ul class="nav">
-            <li><a href="index.html" class="navitems">Home</a></li>
+            <li><a href="./index.html" class="navitems">Home</a></li>
             <li><a  href="./recipes.html">Recipes</a></li>
             <li><a  href="./about.html">About</a></li>
+            <li><a  href="./signup.html">Sign up</a></li>
+            <li class="dropdown">
+                <a href="#">Subscription</a>
+                <div class="dropdown-content">
+                    <a href="#">Manage your Subscription</a>
+                    <a href="#">Give a Gift Subscription</a>
+                    <a href="#">Help</a>
+                </div>
+            </li>
         </ul>
+
+        <div class="searchbar">
+        <form action="/search" method="get">
+        <input type="search" id="search" name="query" placeholder="Search for recipes">
+        <button type="submit">Search</button>
+        </form>
+        </div>
+       
     </nav>
 
+    <!-- Main Section for About Page -->
     <section>
-        <h1>Recipe site</h1>
-        <p class="sectiondesc">This project will be a site that contains recipes</p>
+        <h1>About Us</h1>
+        <p class="sectiondesc">We are a team of professional chefs passionate about creating delicious recipes for everyone.</p>
     </section>
 
-    <article class="people">
-        <article><p class="people2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="pancake">Jack - Professional Cook</p>
-        </article>
-
-        <article><p class="people2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="p2">Steven - Professional Cook</p></article>
-       
-        <article><p class="people2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="pancake">Isaac - Professional Cook</p>
-        </article>
-        <article><p class="people2"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="pancake">Ryder - Professional Cook</p>
-        </article>
-    </article>
-
-
+    <!-- Team Section (About the People) -->
+    <section class="team-section">
+        <h2>Meet Our Team</h2>
+        <div class="team-members">
+            <div class="team-member">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="Jack" class="team-member-img">
+                <p class="team-member-name">Jack - Professional Cook</p>
+            </div>
+            <div class="team-member">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="Steven" class="team-member-img">
+                <p class="team-member-name">Steven - Professional Cook</p>
+            </div>
+            <div class="team-member">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="Isaac" class="team-member-img">
+                <p class="team-member-name">Isaac - Professional Cook</p>
+            </div>
+            <div class="team-member">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-coO6G2IuI734BMaQkhQk0NrYguFtEhJ8dw&s" alt="Ryder" class="team-member-img">
+                <p class="team-member-name">Ryder - Professional Cook</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit asperiores cupiditate eaque porro, ex ipsum nemo reprehenderit accusamus, vero vitae consectetur expedita hic eveniet numquam animi aspernatur cum neque ducimus.</p>
@@ -42,4 +70,5 @@
     </footer>
 
 </body>
+
 </html>

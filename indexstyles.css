@@ -2,70 +2,191 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin: 0;
+    height: 100vh;
+}
+
+ body > nav {
+    display: flex;
+    gap: 20px;
+    background-color:rgb(170, 121, 121);
+    color: white;
+    justify-content: center;
+    margin-bottom: 0px;
+    padding-bottom: 10px;
+    align-items: center;
+    align-content: center;
 }
 
 .nav {
     display: flex;
     gap: 20px;
-    background-color:rgb(170, 121, 121);
-    padding: 0px 100px;
-    padding-top: 20px;
-    color: white;
-    justify-content: center;
-    margin-bottom: 0px;
-}
-nav > ul > li {
-    font-size: 30px;
     font-weight: bold;
+    font-size: 30px;
+    align-items: center;
 }
 
-li {
+/**
+search bar
+**/
+.searchbar {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: auto;
+    padding: 5px; 
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.8); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.searchbar input {
+    padding: 8px 12px; 
+    font-size: 16px;
+    border-radius: 20px; 
+    border: 2px solid #ccc;
+    outline: none;
+    width: 200px; 
+    transition: all 0.3s ease;
+}
+
+.searchbar input:focus {
+    border-color: orange;
+    box-shadow: 0 0 10px rgba(255, 165, 0, 0.6);
+}
+
+.searchbar button {
+    padding: 8px 15px; 
+    font-size: 16px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 20px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.searchbar button:hover {
+    background-color: #e57a00;
+    transform: translateY(-2px);
+}
+
+.searchbar button:active {
+    transform: translateY(0);
+}
+
+
+button {
+    border-radius: 20px;
+    padding: 10px;
+}
+
+body nav li {
     list-style-type: none;
 
 }
 
+/**
+title on the photo
+**/
+
 .bigheader {
-    background-image: url("https://as1.ftcdn.net/v2/jpg/03/35/51/06/1000_F_335510693_HY7mLg3ARdLccKoXk3m66NLDpJRJh51p.jpg") ;
+    background-image: url("https://t4.ftcdn.net/jpg/10/31/28/27/360_F_1031282727_nWhYaCS4PzyTw4RtWe3mm5CFaftkxBL0.jpg") ;
     padding: 50px;
-    text-shadow: 
-        -1px -1px 0 black,  
-        1px -1px 0 black,  
-        -1px 1px 0 black,  
-        1px 1px 0 black;
-        font-style: italic;
+    font-style: italic;
 }
 
 section {
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     font-weight: bold;
     font-size: 50px;
     text-align: center;
     justify-content: space-around;
-    background-color: antiquewhite;
-    color: white;
+    background-color: white;
+    color: orangered
 }
 
 .section4 {
     display: flex;
     justify-content: space-evenly;
-    font-size: 15px;
-    padding-bottom: 400px;
+    font-size: 20px;
+    padding-bottom: 100px;
 }
 
 .section4 > div > li {
    background-color: orange;
-   padding: 5px;
+   padding: 8px;
    text-transform: uppercase;
    border-radius: 20px;
+   list-style-type: none;
 }
+
+.section4 > div > li:hover {
+    text-decoration-color: purple;
+    border: 2px solid purple;
+ }
 
 .section4 img {
-    max-width: 150px;
+    max-width: 350px;
     height: auto;
+    border-radius: 8px;
 }
 
+/**
+fresh picks
+**/
 
+.dishes {
+    text-align: center;
+    padding-bottom: 200px;
+}
+.dish-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 10px;
+}
+.dish-item {
+    background-color:white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.dish-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.dish-item a {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    color: black;
+}
+.dish-item a:hover{
+    text-decoration: underline;
+    text-decoration-color: orange;
+}
+
+.dishes .freshpicks {
+    color: orange;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.freshpicks:hover {
+    text-decoration: underline;
+    text-decoration-color: purple;
+}
+/**
+recipes section for recipes.html
+**/
 .allrecipes {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
@@ -86,6 +207,7 @@ section {
 }
 
 .allrecipes a {
+    display: inline-block;
     font-weight: bold;
     font-size: 16px;
     margin-top: 10px;
@@ -93,8 +215,114 @@ section {
     background-color: orange;
     padding: 10px;
     border-radius: 20px;
+    width: 200px;
 }
 
+
+/**
+sign up section
+**/
+
+section > div {
+    color: black;
+    font-size: 20px;
+}
+
+
+
+/**
+recipes template
+
+**/
+
+.recipes {
+    font-size: 20px;
+    color: black;
+    text-align: left;
+}
+
+.recipes > h1 {
+    font-size: 50px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.recipesdiv1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.recipe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    flex-basis: 40%;  
+    flex-shrink: 0;  
+}
+
+.recipesdiv2 {
+    display: flex;
+    flex-direction: column;
+    text-wrap: wrap;
+    justify-content: center;
+    flex-basis: 55%;  
+}
+
+.recipes h2 {
+    text-transform: uppercase;
+}
+
+/**
+subscription dropdown
+**/
+.dropdown {
+    position: relative;
+}
+
+.dropdown > a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    background-color:rgb(170, 121, 121);  
+    text-wrap-style: auto;
+    text-align: center;
+}
+
+.dropdown:hover > a {
+    background-color:rgb(170, 121, 121);
+}
+
+.dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color:rgb(170, 121, 121);
+    min-width: 160px;
+    z-index: 1;
+    white-space: normal; 
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; 
+}
+
+.dropdown-content li a {
+    color: white;
+    text-decoration: none;
+}
+
+.dropdown-content li a:hover {
+    background-color: rgb(170, 121, 121);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/**
+footer and a tag
+**/
 
 a {
     text-decoration: none  ;
