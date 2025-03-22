@@ -1,6 +1,6 @@
-/*------------------------------------
+/*------------------------------------------------------------------------------
   Global Variables & Reset
-------------------------------------*/
+------------------------------------------------------------------------------*/
 :root {
   --primary-color: #ff6b6b;
   --secondary-color: #1a1a1a;
@@ -17,9 +17,7 @@
   box-sizing: border-box;
 }
 
-/*------------------------------------
-  Global Styles
-------------------------------------*/
+
 body {
   font-family: var(--font-family);
   background-color: var(--accent-color);
@@ -28,9 +26,7 @@ body {
   padding: 20px;
 }
 
-/*------------------------------------
-  Header & Navigation
-------------------------------------*/
+
 header {
   background: var(--bg-gradient);
   color: #fff;
@@ -48,7 +44,7 @@ header {
   margin: 0 auto;
 }
 
-nav[aria-label="Main navigation"] {
+.navbar {
   flex: 1;
 }
 
@@ -72,10 +68,10 @@ nav[aria-label="Main navigation"] {
 
 .main-nav li a:hover {
   color: var(--accent-color);
+  text-decoration: underline;
 }
 
 
-/* Search Bar */
 .search-container {
   display: flex;
   align-items: center;
@@ -109,9 +105,7 @@ nav[aria-label="Main navigation"] {
   background-color: #333;
 }
 
-/*------------------------------------
-  Footer
-------------------------------------*/
+
 footer {
   background-color: var(--secondary-color);
   color: #fff;
@@ -121,9 +115,7 @@ footer {
   border-radius: var(--border-radius);
 }
 
-/*------------------------------------
-  Responsive Design
-------------------------------------*/
+
 @media (max-width: 768px) {
   .nav-container {
     flex-direction: column;

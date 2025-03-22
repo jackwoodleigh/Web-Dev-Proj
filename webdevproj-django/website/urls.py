@@ -17,16 +17,18 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 from .views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path("", home, name='home'),
-    path("recipe", recipe, name='recipe'),
-    path('submit-recipe', submit_recipe, name='submit_recipe'),
-    path('about', about, name='about'),
-    path('contact', contact, name='contact'),
-    path('recipe-list', recipe_list, name='recipe-list'),
+    path("recipe/", recipe, name='recipe'),
+    path('submit-recipe/', submit_recipe, name='submit_recipe'),
+    path('about/', about, name='about'),
+    path('contact/', contact, name='contact'),
+    path('recipe-list/', recipe_list, name='recipe-list'),
 ]
 
 
