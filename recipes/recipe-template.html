@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recipe Template</title>
+        <link rel="stylesheet" href="../indexstyles.css">
+    </head>
+    <body>
+        <nav id="header">
+            <ul class="nav">
+                <li><a href="../index.html" class="navitems">Home</a></li>
+                <li><a href="../recipes.html">Recipes</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../signup.html">Sign up</a></li>
+            </ul>
+        </nav>
+
+        <section class="recipes">
+            <h1 id="recipe-title">Loading...</h1>
+            <div class="recipesdiv1">
+                <img id="recipe-image" src="" alt="Recipe Image" class="recipe-image" width="200px">
+                <div class="recipesdiv2">
+                    <h2>Ingredients</h2>
+                    <ul id="ingredients-list"></ul>
+
+                    <h2>Instructions</h2>
+                    <ol id="instructions-list"></ol>
+
+                    <h2>Tips</h2>
+                    <ul id="tips-list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <main>
+
+        </main>
+
+        <footer>
+            <p>WIT &copy; 2025</p>
+        </footer>
+
+        <script>
+            // Extract the recipe name from the query string
+            const urlParams = new URLSearchParams(window.location.search);
+            const recipeName = urlParams.get('recipe');
+        
+            if (recipeName) {
+                // Fetch the recipe data from recipes.json
+                fetch('../recipes/recipes.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const recipe = data[recipeName];
+                        if (recipe) {
+                            // Populate the recipe details
+                            document.getElementById('recipe-title').textContent = recipeName;
+                            document.getElementById('recipe-image').src = recipe['recipe-image'];
+                            document.getElementById('recipe-image').alt = recipeName;
+        
+                            // Populate ingredients
+                            const ingredientsList = document.getElementById('ingredients-list');
+                            ingredientsList.innerHTML = Object.values(recipe.ingredients)
+                                .map(ingredient => `<li>${ingredient}</li>`)
+                                .join('');
+        
+                            // Populate instructions
+                            const instructionsList = document.getElementById('instructions-list');
+                            instructionsList.innerHTML = Object.values(recipe.instructions)
+                                .map(instruction => `<li>${instruction}</li>`)
+                                .join('');
+        
+                            // Populate tips
+                            const tipsList = document.getElementById('tips-list');
+                            tipsList.innerHTML = Object.values(recipe.tips)
+                                .map(tip => `<li>${tip}</li>`)
+                                .join('');
+                        } else {
+                            document.getElementById('recipe-title').textContent = 'Recipe not found';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading recipe:', error);
+                        document.getElementById('recipe-title').textContent = 'Error loading recipe';
+                    });
+            } else {
+                document.getElementById('recipe-title').textContent = 'No recipe specified';
+            }
+        </script>
+    </body>
+</html>
