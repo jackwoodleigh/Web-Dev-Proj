@@ -1,0 +1,225 @@
+/*------------------------------------------------------------------------------
+  Global Variables & Reset
+------------------------------------------------------------------------------*/
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #1a1a1a;
+    --accent-color: #f7f7f7;
+    --bg-gradient: linear-gradient(135deg, #fc9898 0%, #ee81f8 100%);
+    --bg-gradient2: linear-gradient(135deg, #ffeaea 0%, #fad0de 100%);
+    --font-family: 'Montserrat', sans-serif;
+    --transition-speed: 0.3s;
+    --border-radius: 20px;
+    --box-background:rgba(255, 255, 255, 0.25);
+    --text-box-background:rgba(255, 255, 255, 0.75);
+    --text-color-main: white;
+    --text-color-second: grey;
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--secondary-color);
+    line-height: 1.6;
+    padding: 20px;
+    background: var(--bg-gradient2);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header {
+    background: var(--bg-gradient);
+    color: var(--text-color-main);
+    padding: 20px 10px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.navbar {
+    flex: 1;
+}
+
+.main-nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.main-nav li {
+    margin: 0 20px;
+    position: relative;
+}
+
+.main-nav li a {
+    color: var(--text-color-main);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--transition-speed);
+}
+
+.main-nav li a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+
+.nav-search-container {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.nav-search-container input {
+    padding: 10px 12px;
+    border: 1px solid var(--text-color-main);
+    border-radius: var(--border-radius);
+    outline: none;
+    transition: border-color var(--transition-speed);
+    
+}
+
+.nav-search-container input:focus {
+    border-color: var(--primary-color);
+}
+
+.nav-search-container button {
+    font-size: medium;
+    font-weight: 500;
+    padding: 8px 15px;
+    margin-left: 8px;
+    border: none;
+    border-radius: var(--border-radius);
+    border: 2px solid var(--text-color-main);
+    background: var(--box-background);
+    color: var(--text-color-main);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed);
+}
+
+
+main {
+    min-height: 100vh;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: var(--secondary-color);
+    color: var(--text-color-main);
+    text-align: center;
+    padding: 0px 10px;
+}
+  
+  
+  
+ 
+
+@keyframes fadeOutCollapse {
+    0% {
+        opacity: 1;
+        max-height: 100px;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: 1rem;
+    }
+    50% {
+        opacity: 0;
+        max-height: 100px;
+    }
+    100% {
+        opacity: 0;
+        max-height: 0;
+        padding: 0;
+        margin-bottom: 0;
+    }
+}
+
+.alert {
+    overflow: hidden;
+    animation: fadeOutCollapse 1.5s forwards;
+    animation-delay: 2s;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-dismissible {
+    position: relative;
+    padding-right: 3rem;
+}
+
+.alert-dismissible .btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 0.75rem ;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 990px) {
+    #menu-icon{
+        display: block;
+    }
+    .navlist{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        top: 10%;
+        right: -100%;
+        width: 300px;
+        height: 40vh;
+        display: grid;
+        transition: all .55s ease;
+        z-index: 1100;
+        margin-right: -150px;
+    }
+    .navlist a:hover{
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+    }
+    .navlist a{
+        display: block;
+        margin: 7px 0;
+        margin-left: 0;
+        
+    }
+    .navlist.open{
+        right: 0;
+    }
+}

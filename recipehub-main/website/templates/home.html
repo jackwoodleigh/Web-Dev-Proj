@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block styles %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/home.css') }}">
+{% endblock %}
+{% block content %}
+
+    <section id="featured">
+        <h2>Featured Recipes</h2>
+        <div class="recipes">
+          <p>No featured recipes available.</p>
+        </div>
+    </section>
+  
+    <section id="popular">
+        <h2>Popular/Seasonal Recipes</h2>
+        <div class="recipes">
+            <p>No popular recipes available.</p>
+        </div>
+    </section>
+
+{% endblock %}

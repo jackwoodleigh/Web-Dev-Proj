@@ -1,0 +1,52 @@
+{% extends "index.html" %}
+
+{% block styles %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/create-recipe.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="add-recipe-container">
+    <h2>Create a New Recipe</h2>
+    <form action="/create-recipe" method="POST">
+
+        <div class="input-group">
+          <label for="title" class="form-label">Title: </label>
+          <input class="form-label" type="text" id="title" name="title" placeholder="Enter title..." required>
+        </div>
+
+        <div class="input-group">
+            <label for="tag-input" class="form-label">Enter tags</label>
+            <input class="form-label" id="tag-input" type="text" placeholder="Enter tags">
+            <div class="tags-area" id="tags-area"></div>
+        </div>
+
+        <div class="input-group">
+          <label for="image" class="form-label">Recipe Image: </label>
+          <input class="form-label" type="file" id="image" name="image">
+        </div>
+
+        <div class="input-group">
+          <label for="cooking_time" class="form-label">Cook Time: </label>
+            <input class="form-label" type="number" id="cooking_time" name="cooking_time" placeholder="Enter cooking time in minutes..." required>
+        </div>
+
+        <div class="input-group">
+          <label for="difficulty" class="form-label">Difficulty (<span id="difficultyValue">3</span>/5):</label>
+          <input class="form-label" type="range" id="difficulty" name="difficulty" min="1" max="5" value="3" oninput="document.getElementById('difficultyValue').innerText = this.value">
+        </div>
+        
+
+        <div class="input-group">
+          <label for="instructions" class="form-label">Instructions</label>
+          <textarea class="form-label" id="instructions" name="instructions" rows="5" placeholder="Enter instructions..." required></textarea>
+        </div>
+
+        <button type="submit" class="create-button">Add Recipe</button>
+    </form>
+     
+    <script src="{{ url_for('static', filename='js/create-recipe.js') }}" defer></script>
+  </div>
+
+</section>
+
+{% endblock %}
