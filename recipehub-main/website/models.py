@@ -33,7 +33,7 @@ class Recipe(db.Model):
     instructions = db.Column(db.Text)
     created = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 
-    search_vector = db.Column(TSVECTOR)
+    #search_vector = db.Column(TSVECTOR)
 
     user = db.relationship('User', back_populates='recipes')
     tags = db.relationship('Tag', secondary=recipe_tags, back_populates='recipes')

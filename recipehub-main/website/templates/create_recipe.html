@@ -7,7 +7,7 @@
 {% block content %}
   <div class="add-recipe-container">
     <h2>Create a New Recipe</h2>
-    <form action="/create-recipe" method="POST">
+    <form action="/create-recipe" method="POST" enctype="multipart/form-data">
 
         <div class="input-group">
           <label for="title" class="form-label">Title: </label>
@@ -32,7 +32,7 @@
 
         <div class="input-group">
           <label for="difficulty" class="form-label">Difficulty (<span id="difficultyValue">3</span>/5):</label>
-          <input class="form-label" type="range" id="difficulty" name="difficulty" min="1" max="5" value="3" oninput="document.getElementById('difficultyValue').innerText = this.value">
+          <input class="form-label" type="range" id="difficulty" name="difficulty" min="1" max="5" value="2" oninput="document.getElementById('difficultyValue').innerText = this.value">
         </div>
         
 

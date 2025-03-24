@@ -34,11 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
         tagElement.appendChild(removeBtn);
         tagsArea.appendChild(tagElement);
       });
+      hiddenTags.value = tags.join(',');
     }
   
     function removeTag(index) {
       tags.splice(index, 1);
       renderTags();
+      
     }
   });
   
