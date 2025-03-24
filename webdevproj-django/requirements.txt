@@ -1,2 +1,0 @@
-django==5.1.7
-django-allauth==65.5.0
