@@ -10,7 +10,7 @@
 .login-panel {
     background: var(--bg-gradient);
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
     padding: 45px 60px;
     
@@ -44,7 +44,8 @@
     border-radius: 20px;
     border: 1px solid white;
     background: transparent;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.25);
     color: white;
 }
 .input-group input::placeholder {
@@ -74,11 +75,19 @@ input:-webkit-autofill:active{
     border-radius: 20px;
     font-weight: 700;
     border: 1px solid white;
-    background: transparent;
     color: white;
     cursor: pointer;
     transition: background 0.3s;
     margin-bottom: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+    background: transparent;
+    
+    
+}
+.login-button:hover {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: none;
+    transition: var(--transition-speed);
 }
   
 .signup-link {

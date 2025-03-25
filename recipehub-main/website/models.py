@@ -5,9 +5,10 @@ import uuid
 from sqlalchemy.dialects.postgresql import TSVECTOR
 
 favorites = db.Table('favorites',
-    db.Column('user_id', db.String(36), db.ForeignKey('users.id')),
-    db.Column('recipe_id', db.String(36), db.ForeignKey('recipes.id'))
+    db.Column('user_id', db.String(36), db.ForeignKey('users.id'), primary_key=True),
+    db.Column('recipe_id', db.String(36), db.ForeignKey('recipes.id'), primary_key=True)
 )
+
 recipe_tags = db.Table('recipe_tags',
     db.Column('recipe_id', db.String(36), db.ForeignKey('recipes.id')),
     db.Column('tag_id', db.String(36), db.ForeignKey('tags.id'))
@@ -30,6 +31,7 @@ class Recipe(db.Model):
     image = db.Column(db.String(250))
     cooking_time = db.Column(db.String(150))
     difficulty = db.Column(db.Integer)
+    rating = db.Column(db.Float)
     instructions = db.Column(db.Text)
     created = db.Column(db.DateTime, default=datetime.datetime.utcnow)
 

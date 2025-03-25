@@ -5,14 +5,7 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="search">
-    <form action="{{ url_for('views.browse') }}"  method="POST" class="search-bar">
-        <input type="text" id="search" name="search" placeholder="Search" autocomplete="off">
-        <button type="submit"><i class="ri-search-line"></i></button>
-    </form>
-</div>
-
+{% if recipes %}
 <div class="recipes-list">
   {% for recipe in recipes %}
     <div class="recipe-card">
@@ -25,25 +18,28 @@
           <p>Rating: {{ recipe.rating }}</p>
         </div>
       </a>
-      {% if current_user.is_authenticated %}
         <button class="favorite-icon" data-recipe-id="{{ recipe.id }}" title="Toggle Favorite">
-          {% if recipe.id in favorites_ids %}
+            {% if recipe.id in favorites_ids %}
             <i class="ri-star-fill"></i>
-          {% else %}
+            {% else %}
             <i class="ri-star-line"></i>
-          {% endif %}
+            {% endif %}
         </button>      
-      {% endif %}
     </div>
   {% endfor %}
 </div>
+{% else %}
+<div class="no-content">
+    <h2>You haven't added any favorite recipes yet.</h2>
+</div>
+{% endif %}
 
 <div class="pagination">
 {% if prev_page %}
-    <a href="{{ url_for('views.browse', page=prev_page) }}">Previous</a>
+    <a href="{{ url_for('views.favorites_view', page=prev_page) }}">Previous</a>
 {% endif %}
 {% if next_page %}
-    <a href="{{ url_for('views.browse', page=next_page) }}">Next</a>
+    <a href="{{ url_for('views.favorites_view', page=next_page) }}">Next</a>
 {% endif %}
 </div>
 
