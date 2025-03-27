@@ -5,10 +5,9 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="search">
-    <form action="{{ url_for('views.browse') }}"  method="POST" class="search-bar">
-        <input type="text" id="search" name="search" placeholder="Search" autocomplete="off">
+    <form action="{{ url_for('views.browse') }}" method="POST" class="search-bar">
+        <input type="text" id="search" name="search" placeholder="Search by title or tags..." autocomplete="off" value="{{ search_query }}">
         <button type="submit"><i class="ri-search-line"></i></button>
     </form>
 </div>
@@ -16,21 +15,28 @@
 <div class="recipes-list">
   {% for recipe in recipes %}
     <div class="recipe-card">
-      <a href="{{ url_for('views.home') }}" class="recipe-card-link">
+      <a href="{{ url_for('views.recipe_detail', recipe_id=recipe.id) }}" class="recipe-card-link">
         <img src="{{ url_for('static', filename=recipe.image) }}" class="recipe-image" alt="Recipe Image">
         <div class="recipe-details">
           <h2>{{ recipe.title }}</h2>
-          <p>Cooking Time: {{ recipe.cooking_time }} minutes</p>
-          <p>Difficulty: {{ recipe.difficulty }}</p>
-          <p>Rating: {{ recipe.rating }}</p>
+          <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }} minutes</p>
+          <p><strong>Difficulty:</strong> {{ recipe.difficulty }}</p>
+          <p><strong>Rating:</strong> {{ recipe.rating }}</p>
+          <div class="recipe-tags">
+            {% if recipe.tags %}
+              {% for tag in recipe.tags %}
+                <span class="tag">{{ tag.name }}</span>
+              {% endfor %}
+            {% endif %}
+          </div>
         </div>
       </a>
       {% if current_user.is_authenticated %}
         <button class="favorite-icon" data-recipe-id="{{ recipe.id }}" title="Toggle Favorite">
           {% if recipe.id in favorites_ids %}
-            <i class="ri-star-fill"></i>
+            <i class="ri-heart-fill"></i>
           {% else %}
-            <i class="ri-star-line"></i>
+            <i class="ri-heart-line"></i>
           {% endif %}
         </button>      
       {% endif %}
@@ -40,10 +46,10 @@
 
 <div class="pagination">
 {% if prev_page %}
-    <a href="{{ url_for('views.browse', page=prev_page) }}">Previous</a>
+    <a href="{{ url_for('views.browse', page=prev_page, search=search_query) }}">Previous</a>
 {% endif %}
 {% if next_page %}
-    <a href="{{ url_for('views.browse', page=next_page) }}">Next</a>
+    <a href="{{ url_for('views.browse', page=next_page, search=search_query) }}">Next</a>
 {% endif %}
 </div>
 

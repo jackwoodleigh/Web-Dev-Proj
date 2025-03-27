@@ -103,3 +103,11 @@ input:-webkit-autofill:active{
 .signup-link a:hover{
     text-decoration: underline;
 }
+
+/* Standardized button hover effects */
+.form-button:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transition: var(--transition-speed);
+}

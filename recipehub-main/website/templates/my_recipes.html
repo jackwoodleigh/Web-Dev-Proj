@@ -1,0 +1,70 @@
+{% extends "index.html" %}
+
+{% block styles %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/my-recipes.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="my-recipes-header">
+  <h1>My Recipes</h1>
+  <a href="{{ url_for('views.create_recipe') }}" class="create-btn">
+    <i class="ri-add-line"></i> Create New Recipe
+  </a>
+</div>
+
+{% if recipes %}
+<div class="recipes-list">
+  {% for recipe in recipes %}
+    <div class="recipe-card">
+        <a href="{{ url_for('views.recipe_detail', recipe_id=recipe.id) }}" class="recipe-card-link">
+          <img src="{{ url_for('static', filename=recipe.image) }}" class="recipe-image" alt="Recipe Image">
+          <div class="recipe-details">
+            <h2>{{ recipe.title }}</h2>
+            <p><strong>Cooking Time:</strong> {{ recipe.cooking_time }} minutes</p>
+            <p><strong>Difficulty:</strong> {{ recipe.difficulty }}</p>
+            <p><strong>Rating:</strong> {{ recipe.rating }}</p>
+            <div class="recipe-tags">
+              {% if recipe.tags %}
+                {% for tag in recipe.tags %}
+                  <span class="tag">{{ tag.name }}</span>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+        </a>
+        <div class="recipe-actions">
+          <a href="{{ url_for('views.edit_recipe', recipe_id=recipe.id) }}" class="edit-btn" title="Edit Recipe">
+            <i class="ri-edit-line"></i>
+          </a>
+          <button class="delete-btn" data-recipe-id="{{ recipe.id }}" title="Delete Recipe">
+            <i class="ri-delete-bin-line"></i>
+          </button>
+        </div>
+    </div>
+  {% endfor %}
+</div>
+{% else %}
+<div class="no-content">
+    <div class="empty-recipes">
+      <i class="ri-book-line"></i>
+      <h2>You haven't created any recipes yet</h2>
+      <p>Create your first recipe to see it here!</p>
+      <a href="{{ url_for('views.create_recipe') }}" class="create-btn">Create New Recipe</a>
+    </div>
+</div>
+{% endif %}
+
+<div class="pagination">
+{% if prev_page %}
+    <a href="{{ url_for('views.my_recipes', page=prev_page) }}">Previous</a>
+{% endif %}
+{% if next_page %}
+    <a href="{{ url_for('views.my_recipes', page=next_page) }}">Next</a>
+{% endif %}
+</div>
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/my-recipes.js') }}"></script>
+{% endblock %}
+  
+{% endblock %} 

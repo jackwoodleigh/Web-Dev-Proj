@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+
+{% block styles %}
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/recipe-detail.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="recipe-container">
+    <h1>{{ recipe.title }}</h1>
+    <img src="{{ url_for('static', filename=recipe.image) }}" class="recipe-image" alt="Recipe Image">
+    <div class="recipe-header">
+        <div class="recipe-meta">
+            <p><strong>Created by:</strong> {{ recipe.user.username }}</p>
+            <p><strong>Date:</strong> {{ recipe.created.strftime("%B %d, %Y") }}</p>
+        </div>
+        {% if current_user.is_authenticated %}
+        <button class="favorite-icon" data-recipe-id="{{ recipe.id }}" title="Toggle Favorite">
+            {% if recipe.id in favorites_ids %}
+                <i class="ri-heart-fill"></i>
+            {% else %}
+                <i class="ri-heart-line"></i>
+            {% endif %}
+        </button>
+        {% endif %}
+    </div>
+    <div class="recipe-info">
+        <div class="info-item">
+            <span class="info-label"> <strong>Cooking Time</strong></span>
+            <span class="info-value">{{ recipe.cooking_time }} Minutes</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label"><strong>Difficulty</strong></span>
+            <span class="info-value">{{ recipe.difficulty }}</span>
+        </div>
+        <div class="info-item">
+            <span class="info-label"><strong>Rating</strong></span>
+            <span class="info-value">{{ recipe.rating }}</span>
+        </div>
+    </div>
+    <h2>Instructions</h2>
+    <div class="instructions">
+        <p>{{ recipe.instructions }}</p>
+    </div>
+    <h3>Tags</h3>
+    <div>
+        {% if recipe.tags %}
+            {% for tag in recipe.tags %}
+                <span class="tag">{{ tag.name }}</span>
+            {% endfor %}
+        {% else %}
+            <p>No tags available.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/favorites.js') }}"></script>
+{% endblock %}

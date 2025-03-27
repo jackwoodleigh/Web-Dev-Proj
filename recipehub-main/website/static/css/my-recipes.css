@@ -1,57 +1,42 @@
-.search {
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-.search-bar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: none;
-    width: 60%;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 30px;
-    padding: 0 10px;
-}
-.search-bar input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: 0;
-    padding: 14px 10px;
-    font-size: 15px;
-    color: gray;
-}
-.search-bar input::placeholder{
-    color: gray;
-    padding-left: 4px;
-}
-.input-group input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: white;
-    transition: background-color 5000s ease-in-out 0s;
-    box-shadow: inset 0 0 20px 20px #23232329;
-}
-.search-bar button{
-    background: transparent;
-    outline: 0;
-    border: 0;
-    
-}
-.search-bar button i{
-    color: grey;
-    font-size: 20px;
-    padding-right: 10px;
+
+.my-recipes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 40px 0 30px 0;
+  color: var(--secondary-color);
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+.my-recipes-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0;
+}
+
+.create-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-gradient);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.create-btn i {
+  margin-right: 5px;
+  font-size: 1.2rem;
+}
+
+.create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
 .recipes-list {
   display: flex;
@@ -60,7 +45,8 @@ input:-webkit-autofill:active{
   padding-bottom: 75px;
   width: 70%;
   justify-self: center;
-  min-height: 66vh;
+  min-height: 73vh;
+  margin: 0 auto;
 }
 
 .recipe-card {
@@ -90,7 +76,6 @@ input:-webkit-autofill:active{
   cursor: pointer;
   overflow: hidden;
 }
-
 
 .recipe-image {
   border-top-left-radius: var(--border-radius);
@@ -128,20 +113,59 @@ input:-webkit-autofill:active{
   font-weight: 600;
 }
 
-.favorite-icon  {
-  align-self: center;
-  font-size: 2rem;
+.recipe-actions {
+  display: flex;
+  flex-direction: column;
   padding-right: 20px;
-  font-weight: 100;
-  outline: none;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: transform var(--transition-speed);
+  gap: 15px;
 }
 
-.favorite-icon:hover {
-  transform: scale(1.1);
+.edit-btn, .delete-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  transition: transform var(--transition-speed), color var(--transition-speed);
+}
+
+.edit-btn {
+  color: var(--secondary-color);
+}
+
+.delete-btn {
+  color: #e74c3c;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+  transform: scale(1.2);
+}
+
+.empty-recipes {
+  text-align: center;
+  padding: 50px 20px;
+  background: transparent;
+  border-radius: var(--border-radius);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.empty-recipes i {
+  font-size: 4rem;
+  color: var(--secondary-color);
+  opacity: 0.5;
+  margin-bottom: 20px;
+}
+
+.empty-recipes h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: var(--secondary-color);
+}
+
+.empty-recipes p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: var(--text-color-secondary);
 }
 
 .pagination {
@@ -174,16 +198,20 @@ input:-webkit-autofill:active{
 }
 
 .no-content {
-  padding-top: 100px;
-  justify-self: center;
-  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
 }
 
+
+.create-btn:hover,
 .pagination a:hover,
-.favorite-icon:hover,
-.search-bar button:hover,
+.edit-btn:hover,
+.delete-btn:hover,
 button:hover {
   transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   transition: var(--transition-speed);
 }
 
@@ -202,4 +230,4 @@ button:hover {
   font-size: 0.85rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform var(--transition-speed);
-}
+} 

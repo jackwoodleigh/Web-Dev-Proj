@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const tagInput = document.getElementById("tag-input");
-    const tagsArea = document.getElementById("tags-area");
-    let tags = [];
+  const tagInput = document.getElementById("tag-input");
+  const tagsArea = document.getElementById("tags-area");
+  const hiddenTags = document.getElementById("hidden-tags"); 
+  let tags = [];
+  
   
     tagInput.addEventListener("keydown", (event) => {
       if (event.key === "Enter") {
-        event.preventDefault();  // prevent the form from submitting
+        event.preventDefault();  
         if (tagInput.value.trim() !== "") {
           const newTag = tagInput.value.trim();
           if (!tags.includes(newTag)) {
@@ -42,5 +44,24 @@ document.addEventListener("DOMContentLoaded", () => {
       renderTags();
       
     }
+    const imageInput = document.getElementById("image");
+    const imagePreview = document.getElementById("image-preview");
+    
+    imageInput.addEventListener("change", function() {
+      if (this.files && this.files[0]) {
+        const reader = new FileReader();
+        
+        reader.onload = function(e) {
+          imagePreview.innerHTML = "";
+          const img = document.createElement("img");
+          img.src = e.target.result;
+          imagePreview.appendChild(img);
+        };
+        
+        reader.readAsDataURL(this.files[0]);
+      } else {
+        imagePreview.innerHTML = "<span>No image selected</span>";
+      }
+    });
   });
   
