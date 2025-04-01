@@ -1,22 +1,46 @@
 <!DOCTYPE html>
-
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recipes</title>
     <link rel="stylesheet" href="indexstyles.css">
+    <script>
+        function loadContent(recipeName) {
+            fetch('recipes/recipes.json')
+                .then(response => response.json())
+                .then(data => {
+                    const recipe = data[recipeName];
+                    if (recipe) {
+                        const refWindow = window.open('recipes/recipe-template.html', '_blank');
+                        refWindow.onload = () => {
+                            const main = refWindow.document.body.querySelector('main');
+                            main.innerHTML = `
+                                <h1>${recipeName}</h1>
+                                <img src="${recipe['recipe-image']}" alt="${recipeName}" style="max-width: 100%; height: auto;">
+                                <h2>Ingredients</h2>
+                                <ul>${Object.values(recipe.ingredients).map(ing => `<li>${ing}</li>`).join('')}</ul>
+                                <h2>Instructions</h2>
+                                <ol>${Object.values(recipe.instructions).map(step => `<li>${step}</li>`).join('')}</ol>
+                                <h2>Tips</h2>
+                                <ul>${Object.values(recipe.tips).map(tip => `<li>${tip}</li>`).join('')}</ul>
+                            `;
+                        };
+                    } else {
+                        console.error('Recipe not found:', recipeName);
+                    }
+                })
+                .catch(error => console.error('Error loading content:', error));
+        }
+    </script>
 </head>
 <body>
-    
-     
     <nav id="header">
         <ul class="nav">
             <li><a href="./index.html" class="navitems">Home</a></li>
-            <li><a  href="./recipes.html">Recipes</a></li>
-            <li><a  href="./about.html">About</a></li>
-            <li><a  href="./signup.html">Sign up</a></li>
+            <li><a href="./recipes.html">Recipes</a></li>
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./signup.html">Sign up</a></li>
             <li class="dropdown">
                 <a href="#">Subscription</a>
                 <div class="dropdown-content">
@@ -28,104 +52,101 @@
         </ul>
 
         <div class="searchbar">
-        <form action="/search" method="get">
-        <input type="search" id="search" name="query" placeholder="Search for recipes">
-        <button type="submit">Search</button>
-        </form>
+            <form action="/search" method="get">
+                <input type="search" id="search" name="query" placeholder="Search for recipes">
+                <button type="submit">Search</button>
+            </form>
         </div>
-       
     </nav>
+
     <section>
-        <h1 class="bigheader">All recipes</h1>
+        <h1 class="bigheader">All Recipes</h1>
         <div class="allrecipes">
             <div>
-                <img src="https://www.cookingclassy.com/wp-content/uploads/2020/06/avocado-salad-7.jpg" alt="">
-                <a href="./recipes/avocado-salad.html">Avocado Salad</a>
+                <img src="https://www.cookingclassy.com/wp-content/uploads/2020/06/avocado-salad-7.jpg" alt="Avocado Salad">
+                <a href="recipes/recipe-template.html?recipe=Avocado%20Salad" class="recipe-link">Avocado Salad</a>
             </div>
             <div>
-                <img src="https://www.skinnytaste.com/wp-content/uploads/2015/01/Avocado-Toast-with-Egg-7.jpg" alt="">
-                <a href="./recipes/avocado-toast-with-egg.html">Avocado Toast with Egg</a>
+                <img src="https://www.skinnytaste.com/wp-content/uploads/2015/01/Avocado-Toast-with-Egg-7.jpg" alt="Avocado Toast with Egg">
+                <a href="recipes/recipe-template.html?recipe=Avocado%20Toast%20with%20Egg" class="recipe-link">Avocado Toast with Egg</a>
             </div>
             <div>
-                <img src="https://cookieandkate.com/images/2023/02/3-ingredient-banana-pancake-recipe-1-2.jpg" alt="">
-                <a href="./recipes/banana-pancakes.html">Banana Pancakes</a>
+                <img src="https://cookieandkate.com/images/2023/02/3-ingredient-banana-pancake-recipe-1-2.jpg" alt="Banana Pancakes">
+                <a href="recipes/recipe-template.html?recipe=Banana%20Pancakes" class="recipe-link">Banana Pancakes</a>
             </div>
             <div>
-                <img src="https://www.dessertfortwo.com/wp-content/uploads/2019/06/Taco-Meat-Recipe-3-735x1103.jpg" alt="">
-                <a href="./recipes/beef-tacos.html">Beef Tacos</a>
+                <img src="https://www.dessertfortwo.com/wp-content/uploads/2019/06/Taco-Meat-Recipe-3-735x1103.jpg" alt="Beef Tacos">
+                <a href="recipes/recipe-template.html?recipe=Beef%20Tacos" class="recipe-link">Beef Tacos</a>
             </div>
             <div>
-                <img src="https://s23209.pcdn.co/wp-content/uploads/2014/12/230711_DD_Roasted-Butternut-Squash-Bacon-Soup_243.jpg" alt="">
-                <a href="./recipes/butternut-squash-soup.html">Butternut Squash Soup</a>
+                <img src="https://s23209.pcdn.co/wp-content/uploads/2014/12/230711_DD_Roasted-Butternut-Squash-Bacon-Soup_243.jpg" alt="Butternut Squash Soup">
+                <a href="recipes/recipe-template.html?recipe=Butternut%20Squash%20Soup" class="recipe-link">Butternut Squash Soup</a>
             </div>
             <div>
-                <img src="https://www.cookingclassy.com/wp-content/uploads/2019/11/cheesecake-8.jpg" alt="">
-                <a href="./recipes/cheesecake.html">Cheesecake</a>
+                <img src="https://www.cookingclassy.com/wp-content/uploads/2019/11/cheesecake-8.jpg" alt="Cheesecake">
+                <a href="recipes/recipe-template.html?recipe=Classic%20Cheesecake" class="recipe-link">Cheesecake</a>
             </div>
             <div>
-                <img src="https://thefoodcharlatan.com/wp-content/uploads/2020/08/Homemade-Chicken-Fettuccine-Alfredo-10.jpg" alt="">
-                <a href="./recipes/chicken-alfredo-pasta.html">Chicken Alfredo Pasta</a>
+                <img src="https://thefoodcharlatan.com/wp-content/uploads/2020/08/Homemade-Chicken-Fettuccine-Alfredo-10.jpg" alt="Chicken Alfredo Pasta">
+                <a href="recipes/recipe-template.html?recipe=Chicken%20Alfredo%20Pasta" class="recipe-link">Chicken Alfredo Pasta</a>
             </div>
             <div>
-                <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2019/02/Best-Chicken-Fried-Rice-Recipe.jpg" alt="">
-                <a href="./recipes/chicken-fried-rice.html">Chicken Fried Rice</a>
+                <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2019/02/Best-Chicken-Fried-Rice-Recipe.jpg" alt="Chicken Fried Rice">
+                <a href="recipes/recipe-template.html?recipe=Chicken%20Fried%20Rice" class="recipe-link">Chicken Fried Rice</a>
             </div>
             <div>
-                <img src="https://www.skinnytaste.com/wp-content/uploads/2011/06/Chicken-Tikka-Masala-15.jpg" alt="">
-                <a href="./recipes/chicken-tikka-masala.html">Chicken Tikka Masala</a>
+                <img src="https://www.skinnytaste.com/wp-content/uploads/2011/06/Chicken-Tikka-Masala-15.jpg" alt="Chicken Tikka Masala">
+                <a href="recipes/recipe-template.html?recipe=Chicken%20Tikka%20Masala" class="recipe-link">Chicken Tikka Masala</a>
             </div>
             <div>
-                <img src="https://diethood.com/wp-content/uploads/2014/05/american-cheeseburger-7.jpg" alt="">
-                <a href="./recipes/classic-cheeseburger.html">Classic Cheeseburger</a>
+                <img src="https://diethood.com/wp-content/uploads/2014/05/american-cheeseburger-7.jpg" alt="Classic Cheeseburger">
+                <a href="recipes/recipe-template.html?recipe=Classic%20Cheeseburger" class="recipe-link">Classic Cheeseburger</a>
             </div>
             <div>
-                <img src="https://www.paleorunningmomma.com/wp-content/uploads/2021/02/lava-cakes-9.jpg" alt="">
-                <a href="./recipes/chocolate-lava-cake.html">Chocolate Lava Cake</a>
+                <img src="https://www.paleorunningmomma.com/wp-content/uploads/2021/02/lava-cakes-9.jpg" alt="Chocolate Lava Cake">
+                <a href="recipes/recipe-template.html?recipe=Chocolate%20Lava%20Cake" class="recipe-link">Chocolate Lava Cake</a>
             </div>
             <div>
-                <img src="https://www.spendwithpennies.com/wp-content/uploads/2023/06/Grilled-Chicken-Salad-SpendWithPennies-4.jpg" alt="">
-                <a href="./recipes/grilled-chicken-salad.html">Grilled Chicken Salad</a>
+                <img src="https://www.spendwithpennies.com/wp-content/uploads/2023/06/Grilled-Chicken-Salad-SpendWithPennies-4.jpg" alt="Grilled Chicken Salad">
+                <a href="recipes/recipe-template.html?recipe=Grilled%20Chicken%20Salad" class="recipe-link">Grilled Chicken Salad</a>
             </div>
             <div>
-                <img src="https://s23209.pcdn.co/wp-content/uploads/2014/04/Garlic-Butter-Shrimp_485.jpg" alt="">
-                <a href="./recipes/garlic-butter-shrimp.html">Garlic Butter Shrimp</a>
+                <img src="https://s23209.pcdn.co/wp-content/uploads/2014/04/Garlic-Butter-Shrimp_485.jpg" alt="Garlic Butter Shrimp">
+                <a href="recipes/recipe-template.html?recipe=Garlic%20Butter%20Shrimp" class="recipe-link">Garlic Butter Shrimp</a>
             </div>
             <div>
-                <img src="https://www.butterbeready.com/wp-content/uploads/2024/11/fried-chicken-5.jpg" alt="">
-                <a href="./recipes/fried-chicken.html">Fried Chicken</a>
+                <img src="https://www.butterbeready.com/wp-content/uploads/2024/11/fried-chicken-5.jpg" alt="Fried Chicken">
+                <a href="recipes/recipe-template.html?recipe=Fried%20Chicken" class="recipe-link">Fried Chicken</a>
             </div>
             <div>
-                <img src="https://krollskorner.com/wp-content/uploads/2020/02/Shrimpscampialfredo12-scaled.jpg" alt="">
-                <a href="./recipes/shrimp-scampi.html">Shrimp Scampi</a>
+                <img src="https://krollskorner.com/wp-content/uploads/2020/02/Shrimpscampialfredo12-scaled.jpg" alt="Shrimp Scampi">
+                <a href="recipes/recipe-template.html?recipe=Shrimp%20Scampi" class="recipe-link">Shrimp Scampi</a>
             </div>
             <div>
-                <img src="https://www.spoonfulofflavor.com/wp-content/uploads/2021/01/spinach-and-feta-quich.jpg" alt="">
-                <a href="./recipes/shrimp-scampi.html">Spinach and Feta Quiche</a>
+                <img src="https://www.spoonfulofflavor.com/wp-content/uploads/2021/01/spinach-and-feta-quich.jpg" alt="Spinach and Feta Quiche">
+                <a href="recipes/recipe-template.html?recipe=Spinach%20and%20Feta%20Quiche" class="recipe-link">Spinach and Feta Quiche</a>
             </div>
             <div>
-                <img src="https://stefaniaskitchenette.com/wp-content/uploads/2024/07/Carbonara-5.webp" alt="">
-                <a href="./recipes/spaghetti-carbonara.html">Spaghetti Carbonara</a>
+                <img src="https://stefaniaskitchenette.com/wp-content/uploads/2024/07/Carbonara-5.webp" alt="Spaghetti Carbonara">
+                <a href="recipes/recipe-template.html?recipe=Spaghetti%20Carbonara" class="recipe-link">Spaghetti Carbonara</a>
             </div>
             <div>
-                <img src="https://cookieandkate.com/images/2015/11/best-vegetarian-chili-1-1.jpg" alt="">
-                <a href="./recipes/vegetarian-chili.html">Vegetarian Chili</a>
+                <img src="https://cookieandkate.com/images/2015/11/best-vegetarian-chili-1-1.jpg" alt="Vegetarian Chili">
+                <a href="recipes/recipe-template.html?recipe=Vegetarian%20Chili" class="recipe-link">Vegetarian Chili</a>
             </div>
             <div>
-                <img src="https://www.dinneratthezoo.com/wp-content/uploads/2019/02/vegetable-stir-fry-3.jpg" alt="">
-                <a href="./recipes/vegetable-stir-fry.html">Vegetable Stir Fry</a>
+                <img src="https://www.dinneratthezoo.com/wp-content/uploads/2019/02/vegetable-stir-fry-3.jpg" alt="Vegetable Stir Fry">
+                <a href="recipes/recipe-template.html?recipe=Vegetable%20Stir%20Fry" class="recipe-link">Vegetable Stir Fry</a>
             </div>
-             <div>
-                <img src="https://domesticgothess.com/wp-content/uploads/2020/03/easy-vegan-banana-bread.jpg" alt="">
-                <a href="./recipes/vegan-banana-bread.html">Vegan Banana Bread</a>
+            <div>
+                <img src="https://domesticgothess.com/wp-content/uploads/2020/03/easy-vegan-banana-bread.jpg" alt="Vegan Banana Bread">
+                <a href="recipes/recipe-template.html?recipe=Vegan%20Banana%20Bread" class="recipe-link">Vegan Banana Bread</a>
             </div>
         </div>
     </section>
-    
-    
-    
+
     <footer>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit asperiores cupiditate eaque porro, ex ipsum nemo reprehenderit accusamus, vero vitae consectetur expedita hic eveniet numquam animi aspernatur cum neque ducimus.</p>
-        <p>WIT &copy; 2020</p>
+        <p>WIT &copy; 2025</p>
     </footer>
 </body>
 </html>
