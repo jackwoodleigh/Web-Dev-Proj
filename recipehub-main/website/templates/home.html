@@ -1,23 +1,30 @@
 {% extends "index.html" %}
+
 {% block styles %}
-<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/home.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock %}
+
 {% block content %}
 <div>
     <section id="featured">
         <h2>Featured Recipes</h2>
         <div class="recipes">
-          <p>No featured recipes available.</p>
-        </div>
-    </section>
-  
-    <section id="popular">
-        <h2>Popular/Seasonal Recipes</h2>
-        <div class="recipes">
-            <p>No popular recipes available.</p>
+            {% if recipes %}
+                {% for recipe in recipes %}
+                    <div class="recipe-card">
+                        <a href="{{ url_for('views.recipe_detail', recipe_id=recipe.id) }}">
+                            <img src="{{ url_for('static', filename=recipe.image) }}" alt="{{ recipe.title }}">
+                            <h3>{{ recipe.title }}</h3>
+                        </a>
+                        <p>Cooking Time: {{ recipe.cooking_time }}</p>
+                        <p>Difficulty: {{ recipe.difficulty }}</p>
+                        <p>Rating: {{ recipe.rating }}</p>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No recipes available.</p>
+            {% endif %}
         </div>
     </section>
 </div>
-    
-
 {% endblock %}

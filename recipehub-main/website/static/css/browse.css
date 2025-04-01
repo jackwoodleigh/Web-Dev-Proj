@@ -96,7 +96,7 @@ input:-webkit-autofill:active{
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
   width: auto;
-  max-width: 450px;
+  min-width: 450px;
   height: 300px;
   object-fit: cover;
   display: block;

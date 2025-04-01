@@ -8,6 +8,7 @@ from .database import db
 import os
 import uuid
 from sqlalchemy import or_, func, desc
+import random
 
 def save_address(f):
     @wraps(f)
@@ -21,8 +22,10 @@ views = Blueprint('views', __name__)
 
 #root
 @views.route('/') 
-def home(): 
-    return render_template("home.html", session=session)
+def home():
+    all_recipes = Recipe.query.all() 
+    random_recipes = random.sample(all_recipes, min(len(all_recipes), 6)) 
+    return render_template("home.html", recipes=random_recipes, session=session)
 
 @views.route('/about') 
 def about(): 
